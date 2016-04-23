@@ -19,6 +19,7 @@ if (d=='+'){
   f1 = f2;
  }
  x = x - 1;
+ disp.call (d, x, f1);
  alert('F'+x+'='+f1);
 } 
 if (d=='-') {
@@ -39,4 +40,13 @@ if (d=='-') {
  }
   x = x + 1;
  alert('F'+x+'='+f1);
+}
+function disp (d, i, f){
+ if (d=='+') {
+  i = i - 1;
+ }
+ if (d=='-') {
+  i = i + 1;
+ }
+ alert('Element '+i+' in the Fibonacci sequence is '+f);
 }
