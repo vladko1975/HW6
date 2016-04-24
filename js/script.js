@@ -1,52 +1,32 @@
 // JavaScript File
-var k = Number(prompt('Please enter index for Fibonacci numbers', 10));
-var d = String(prompt('Please enter direction for Fibonacci numbers (- or +)', '+'));
-var x = 0;
-if (d=='+'){
- while (x<=k) {
-  if (x < 2) {
-   var f0 = 0;
-   console.log('F'+x+'='+f0)
-   x = x + 1;
-   var f1 = 1;
-   console.log('F'+x+'='+f1)
-   x = x + 1;
-  } 
-  var f2 = f1 +f0;
-  console.log('F'+x+'='+f2)
-  x = x + 1;
-  f0 = f1; 
-  f1 = f2;
+var a = Number(prompt('Please enter argument a [ not "0" ] :', 2));
+var b = Number(prompt('Please enter argument b :', 4));
+var c = Number(prompt('Please enter argument c :', 1));
+alert('You entered a quadratic equation '+a+'x²+'+b+'x+'+c+'=0');
+if (a!=0) {
+ var d = dsc_f(a, b, c);
+ if (d>0) {
+  q_s (a, b, d);
+ } else if (d==0) {
+    q_s0 (b, a);
+ } else if (d<0) {
+    alert('Dyskruminant: D<0 - No Answer, goodbye');
  }
- x = x - 1;
- disp.call (d, x, f1);
- alert('F'+x+'='+f1);
 } 
-if (d=='-') {
- while (x>=-k) {
-  if (x > -2) {
-   var f0 = 0;
-   console.log('F'+x+'='+f0)
-   x = x - 1;
-   var f1 = 1;
-   console.log('F'+x+'='+f1)
-   x = x - 1;
-  } 
-  var f2 = f0 - f1;
-  console.log('F'+x+'='+f2)
-  x = x - 1;
-  f0 = f1; 
-  f1 = f2;
- }
-  x = x + 1;
- alert('F'+x+'='+f1);
-}
-function disp (d, i, f){
- if (d=='+') {
-  i = i - 1;
- }
- if (d=='-') {
-  i = i + 1;
- }
- alert('Element '+i+' in the Fibonacci sequence is '+f);
-}
+else {
+ alert('"a" not equal "0", goodbye');
+} 
+function q_s (a, b, d){
+ var x1 = (-b + Math.sqrt(d))/(2*a);
+ var x2 = (-b - Math.sqrt(d))/(2*a);
+ alert('Answer: X1= '+x1+', X2= '+x2);
+} 
+function q_s0 (b, a){
+ var x = (-b)/(2*a);
+ alert('Answer: X= '+x);
+} 
+function dsc_f (a, b, c){
+ var d = (b*b)-(4*a*c);
+ alert('Dyskruminant: D= '+d);
+ return d;
+} 
